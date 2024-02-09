@@ -1,0 +1,885 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Cormorant+SC:wght@500&display=swap');
+
+:root {
+    --primary: #ff4747;
+    --secondary: #000;
+}
+
+/* Global */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: var(--secondary);
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+}
+
+.section-title-container {
+    font-family: 'Cormorant SC', serif;
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #151515;
+}
+
+.section-title {
+    margin: 0 10px;
+}
+
+.title-icon {
+    color: rgb(255, 21, 21);
+}
+
+
+/* Header */
+
+header {
+    z-index: 100;
+    width: 100%;
+    min-height: 85px;
+    background: #000000e0;
+    border-bottom: 2px solid #ff0004;
+}
+
+.header-container {
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    font-family: 'Cormorant SC', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: inherit;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-right: 50px;
+    transition: text-shadow, color, 0.3s;
+}
+
+.title:hover {
+    text-shadow: 0 0 10px red;
+    color: #ffdede;
+}
+
+.main-nav {
+    position: relative;
+    text-align: center;
+    display: flex;
+}
+
+.nav-menu {
+    display: flex;
+    margin-left: auto;
+}
+
+.main-nav-item {
+    padding: 5px 10px;
+    margin: 0 25px;
+    border-top: 2px solid red;
+    border-bottom: 2px;
+    transition: background-color, border-radius, 0.3s;
+    cursor: pointer;
+}
+
+.main-nav-item a {
+    color: white;
+    font-size: 18px;
+}
+
+.main-nav li:hover {
+    background-color: rgb(60, 0, 0);
+    border-radius: 10px 10px 0 0;
+}
+
+.highlight {
+    border-top: 2px solid rgb(255, 174, 0);
+}
+
+.main-nav .highlight:hover {
+    background-color: rgb(59, 46, 0);
+    border-radius: 10px 10px 0 0;
+}
+
+.highlight a {
+    color: rgb(255, 174, 0);
+}
+
+.logo {
+    height: 75px;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: none;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+.hamburger:hover {
+    background-color: #3b0000;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.bar {
+    display: block;
+    height: 3px;
+    width: 30px;
+    background-color: #ff0000;
+    margin: 5px auto;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Showcase */
+
+.showcase-content {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background: url('/./images/background-the-art-of-war.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.showcase-content::before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background: hsla(0, 0%, 0%, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    max-width: 450px;
+    display: none;
+    visibility: hidden;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.content.active {
+    display: block;
+    visibility: visible;
+    transform: scale(1);
+    transition: 0.5s;
+}
+
+.book-title {
+    margin: 15px 0;
+    width: 400px;
+    max-width: 500px;
+}
+
+.content h4 span {
+    color: hsl(0, 100%, 64%);
+    font-family: 'Cormorant SC', serif;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 0 10px;
+    border-right: 1px solid hsl(0, 100%, 64%);
+}
+
+.content h4 span i {
+    color: white;
+    padding: 0 8px;
+    background-color: orangered;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.content h4 span:first-child {
+    padding-left: 0;
+}
+
+.content h4 span:last-child {
+    border-right: none;
+}
+
+.content .book-description {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 10px 0;
+}
+
+.showcase-button {
+    position: relative;
+}
+
+.showcase-button a {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    background: hsla(0, 100%, 50%, 10%);
+    border: 1px solid hsl(0, 100%, 50%);
+    color: white;
+    font-size: 13px;
+    padding: 6px 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.showcase-button a:nth-child(2) {
+    background: hsla(0, 0%, 0%, 0.5);
+    border: 1px solid hsl(0, 0%, 75%);
+}
+
+.showcase-button a:hover {
+    background: hsla(0, 100%, 55%, 0.5);
+    border: 1px solid hsl(0, 100%, 50%);
+    transform: scale(1.05);
+}
+
+.showcase-button a:active {
+    background: hsla(0, 100%, 50%, 1);
+}
+
+
+/* Feed */
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    background-color: #303030;
+    overflow: hidden;
+}
+
+.feed-nav {
+    max-width: min-content;
+    position: relative;
+    min-height: 428px;
+}
+
+.feed-cards {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    list-style: none;
+}
+
+.feed-card {
+    position: relative;
+    padding: 10px 25px 40px 25px;
+    margin: 25px 10px;
+    background-color: #151515;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 10px 5px #00000050;
+    transition: background-color, transform, 0.3s;
+}
+
+.feed-card:hover {
+    transform: scale(1.03);
+    background-color: #181818;
+}
+
+.feed-item-button {
+    position: absolute;
+    bottom: 15px;
+    left: 25%;
+    right: 25%;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 21, 21);
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.feed-item-button:hover {
+    background-color: rgb(255, 56, 56);
+}
+
+.feed-item-button:active {
+    background-color: rgb(170, 14, 14);
+}
+
+.feed-item-image {
+    width: 150px;
+    padding: 10px 0;
+}
+
+.feed-item-title {
+    margin: 5px 0;
+    font-size: 15px;
+    color: rgb(255, 56, 56);
+}
+
+.feed-item-author {
+    margin: 5px 0 20px 0;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.feed-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed-slider-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151515;
+    margin: 5px 5px 25px 5px;
+    padding: 4px 10px;
+    max-width: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 10px 5px #00000050;
+    transition: background-color, 0.3s;
+}
+
+.feed-slides {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0 25px 0;
+    padding: 5px 10px;
+    background-color: #151515;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px #00000050;
+    transition: background-color, 0.3s;
+}
+
+.feed-slider-button:hover,
+.feed-slides:hover {
+    background-color: #181818;
+}
+
+.feed-slide {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: #353535;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color, 0.3s;
+}
+
+.feed-slide:hover {
+    background-color: #505050;
+}
+
+.feed-slide:active {
+    background-color: #252525;
+}
+
+.current-feed-slide {
+    background-color: red;
+    transition: background-color, 0.3s;
+}
+
+.current-feed-slide:hover {
+    background-color: rgb(255, 56, 56);
+}
+
+.current-feed-slide:active {
+    background-color: rgb(170, 14, 14);
+}
+
+.feed-slides input {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Test */
+
+.test-carousel {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.test-carousel img {
+    pointer-events: none;
+}
+
+.test-item {
+    position: absolute;
+    inset: 0;
+}
+
+.test-item>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.test-content {
+    position: absolute;
+    top: 10%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 50%;
+    box-sizing: border-box;
+}
+
+.test-content-wrapper {
+    background-color: #0000007f;
+    padding: 15px;
+    border-radius: 20px;
+    min-width: fit-content;
+}
+
+.test-author {
+    font-weight: bold;
+    letter-spacing: 8px;
+}
+
+.test-title {
+    font-size: 25px;
+    margin: 0 0 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.test-info {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.test-info .test-topic:first-child {
+    padding-left: 0;
+}
+
+.test-info .test-topic:nth-child(2) {
+    background: orangered;
+    color: white;
+    padding: 0 8px;
+    border-radius: 5px;
+}
+
+.test-topic {
+    min-width: fit-content;
+    color: var(--primary);
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.test-description {
+    margin: 10px 0;
+}
+
+.test-buttons {
+    min-width: max-content;
+}
+
+.test-buttons button {
+    color: white;
+    font-family: 'Cormorant SC', serif;
+    padding: 10px 15px;
+    margin: 5px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 5px 10px 10px #000000c0;
+}
+
+.test-buttons button:first-child {
+    background-color: #ff000040;
+    border: 1px solid #ff0000;
+    margin-right: 10px;
+}
+
+.test-buttons button:nth-child(2) {
+    background-color: #00000040;
+    border: 1px solid #bfbfbf;
+}
+
+.test-buttons button:hover {
+    background-color: #ff1a1a7f;
+    border: 1px solid #ff0000;
+    transform: scale(1.05);
+}
+
+.test-buttons button:active {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.test-cards {
+    padding: 25px 0;
+    border-radius: 20px;
+    position: absolute;
+    inset: auto auto 20px 50%;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: backdrop-filter 0.3s;
+    margin-left: -20px;
+    z-index: 1;
+}
+
+.test-cards:hover {
+    backdrop-filter: blur(10px);
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.test-card {
+    border-radius: 20px;
+    width: 180px;
+    height: 270px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 5px 10px 10px #000000c0;
+}
+
+.thumbnails div:last-child {
+    margin-right: 15px;
+}
+
+.test-card img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.test-slider-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.test-slider-buttons button {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background: var(--secondary);
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    box-shadow: 5px 10px 10px #000000c0;
+    transition: background-color 0.3s;
+}
+
+.test-slider-buttons button:hover {
+    background: #101010;
+}
+
+.test-slider-buttons button:active {
+    background: #000;
+}
+
+.test-slide-indicators {
+    background: var(--secondary);
+    border-radius: 10px;
+    padding: 8px 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 10px 10px #000000c0;
+}
+
+.test-slide-indicator input {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.test-slide-indicator {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: #353535;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color, 0.3s;
+}
+
+.test-slide-indicator:hover {
+    background-color: #505050;
+}
+
+.test-slide-indicator:active {
+    background-color: #252525;
+}
+
+.current-test-slide {
+    background-color: red;
+    transition: background-color, 0.3s;
+}
+
+.current-test-slide:hover {
+    background-color: rgb(255, 56, 56);
+}
+
+.current-test-slide:active {
+    background-color: rgb(170, 14, 14);
+}
+
+.test-list .test-item:first-child {
+    z-index: 1;
+}
+
+.test-list .test-item:first-child .test-author,
+.test-list .test-item:first-child .test-title,
+.test-list .test-item:first-child .test-info,
+.test-list .test-item:first-child .test-description,
+.test-list .test-item:first-child .test-buttons {
+    opacity: 0;
+    animation: showContent 0.3s 0.3s linear 1 forwards;
+}
+
+@keyframes showContent {
+    to {
+        opacity: 1;
+    }
+}
+
+.test-list .test-item:first-child .test-author {
+    animation-delay: 1s;
+}
+
+.test-list .test-item:first-child .test-title {
+    animation-delay: 1.2s;
+}
+
+.test-list .test-item:first-child .test-info {
+    animation-delay: 1.4s;
+}
+
+.test-list .test-item:first-child .test-description {
+    animation-delay: 1.6s;
+}
+
+.test-list .test-item:first-child .test-buttons {
+    animation-delay: 1.8s;
+}
+
+.test-carousel.next .test-list .test-item:first-child img {
+    width: 180px;
+    height: 220px;
+    border-radius: 20px;
+    position: absolute;
+    inset: auto auto 50px calc(50% + 45px);
+    animation: slideIn 0.5s linear 1 forwards;
+}
+
+@keyframes slideIn {
+    to {
+        width: 100%;
+        height: 100%;
+        inset: auto auto 0 0;
+        border-radius: 0;
+    }
+}
+
+.test-carousel.next .test-cards .test-card:last-child {
+    width: 0;
+    overflow: hidden;
+    animation: slideFirst 0.5s linear 1 forwards;
+}
+
+@keyframes slideFirst {
+    to {
+        width: 180px;
+    }
+}
+
+.test-carousel.next .thumbnails {
+    transform: translateX(180px);
+    animation: slideRight 0.3s linear 1 forwards;
+}
+
+@keyframes slideRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.test-carousel.prev .test-list .test-item:nth-child(2) img {
+    z-index: 2;
+}
+
+.test-carousel.prev .test-list .test-item:nth-child(2) img {
+    position: absolute;
+    inset: auto auto 0 0;
+    animation: slideOut 0.5s linear 1 forwards;
+}
+
+@keyframes slideOut {
+    to {
+        width: 180px;
+        height: 270px;
+        border-radius: 20px;
+        inset: auto auto 45px calc(50% + 45px);
+    }
+}
+
+.test-carousel.prev .thumbnails .test-card:first-child {
+    width: 0;
+    overflow: hidden;
+    animation: slideFirst 0.3s linear 1 forwards;
+}
+
+.test-carousel.prev .test-list .test-item:nth-child(2) .test-author,
+.test-carousel.prev .test-list .test-item:nth-child(2) .test-title,
+.test-carousel.prev .test-list .test-item:nth-child(2) .test-topic,
+.test-carousel.prev .test-list .test-item:nth-child(2) .test-description,
+.test-carousel.prev .test-list .test-item:nth-child(2) .test-buttons {
+    animation: contentOut 1s linear 1 forwards;
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+.test-carousel.next .test-slider-buttons button,
+.test-carousel.prev .test-slider-buttons button {
+    pointer-events: none;
+}
+
+
+/* Footer */
+
+footer {
+    font-family: 'Cormorant SC', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--secondary);
+    background-position: center;
+    background-size: cover;
+}
+
+.highlight-text {
+    color: var(--primary)
+}
+
+footer p {
+    padding: 25px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 950px) {
+    .hamburger {
+        display: block;
+    }
+
+    .main-nav {
+        justify-content: space-between;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        z-index: 100;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: #000000e0;
+        min-width: fit-content;
+        padding: 20px;
+        border-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .test-content {
+        top: 5%;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .test-description,
+    .test-author {
+        font-size: 14px;
+    }
+
+    .test-title {
+        font-size: 20px;
+    }
+
+    .test-topic {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+}
